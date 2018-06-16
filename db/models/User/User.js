@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const autoIncrement = require("mongoose-auto-increment");
-const crypto = require("crypto");
 
 const UserSchema = mongoose.Schema({
   _id: { type: Number },
@@ -23,5 +22,7 @@ const UserSchema = mongoose.Schema({
   hash: String,
   salt: String
 });
+
+UserSchema.plugin(autoIncrement.plugin, 'User');
 
 mongoose.model('User', UserSchema);
