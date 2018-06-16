@@ -19,7 +19,9 @@ const UserSchema = mongoose.Schema({
     required: [true, "cannot be blank"],
     match: [/\S+@\S+\.\S+/, "is invalid"],
     index: true
-  }
+  },
+  hash: String,
+  salt: String
 });
 
 mongoose.model('User', UserSchema);
