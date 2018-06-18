@@ -11,6 +11,9 @@ const UserSchema = mongoose.Schema({
     match: [/^[a-zA-Z0-9]+$/, "is valid"],
     index: true
   },
+  name: {
+    type: String,
+  },
   email: {
     tyoe: String,
     lowercase: true,
