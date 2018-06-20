@@ -1,6 +1,6 @@
 # Woz U Final Group Project
 
-To start the application locally, clone the repository and run `npm start` from the project root. This will start both the backend and frontend processes in tandem.
+To start the application locally, clone the repository and run `npm start` from the project root and then in the `/client/` directory. This will start both the backend and frontend processes.
 
 ## Group Members
 
