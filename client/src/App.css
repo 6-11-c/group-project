@@ -1,17 +1,30 @@
+body {
+  background: url(https://pixabay.com/get/eb37b10c2efd063ed1534705fb0938c9bd22ffd41cb2114592f5c970af/food-2203697_1920.jpg);
+  height: 50%;
+  background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+  background-attachment: fixed;
+  /* background-color: cadetblue;
+  --use only if adjusting background image to smaller size */
+  font-family: "Homemade Apple";
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 50px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: darkolivegreen;
+  height: 80px;
   padding: 20px;
   color: white;
+  font-family: "Homemade Apple";
 }
 
 .App-title {

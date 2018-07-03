@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './Signup.css';
 
 class Signup extends Component {
   constructor() {
@@ -45,51 +46,35 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="SignupForm">
-        <h4>Sign Up</h4>
+      <div id="signup-form" className="col-6">
+            <div className="page-header">
+                <h3>Sign Up / Register</h3>
+            </div>
         <form className="form-horizontal">
-          <div className="form-group">
+          {/* <div className="form-group">
             <div className="col-1 col-ml auto">
               <label htmlFor="username">Username: </label>
-            </div>
-            <div className="col-3 col-mr-auto">
-              <input
-                className="form-input"
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Username"
+            </div> */}
+            <div className="form-group row">
+              <input className="form-input col-sm-6 col-form-label" type="text" id="username" name="username" placeholder="Username"
                 value={this.state.username}
-                onChange={this.handleChange}
-              />
+                onChange={this.handleChange}/>
             </div>
-          </div>
-          <div className="form-group">
+          {/* </div> */}
+          {/* <div className="form-group">
             <div className="col-1 col-ml-auto">
               <label htmlFor="password" className="form-lable">
                 Password:
               </label>
-            </div>
-            <input
-                className="form-input"
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-          </div>
-          <div className="form-group">
-            <div className="col-7">
-              <button
-                className="btn btn-primary col-1 col-mr-auto"
-                onClick={this.handleSubmit}
-                type="submit"
-              >
-                Sign Up
-              </button>
-            </div>
+            </div> */}
+              <div className="form-group row">
+                <input type="password" className="form-input col-sm-6 col-form-label" name="password" placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.handleChange} />
+              </div>
+          {/* </div> */}
+          <div className="form-group row">
+              <button className="btn btn-secondary" onClick={this.handleSubmit}type="submit">Sign Up</button>
           </div>
         </form>
       </div>
