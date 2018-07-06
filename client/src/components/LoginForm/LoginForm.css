@@ -1,13 +1,7 @@
 
-
 #login-form {
+  max-width: 350px;
   text-align: left;
-  float: left;
-  margin: 2em;
-  padding: 25px;
+  padding: 20px;
   color: white;
-}
-
-.form-group {
-  padding: 10px;
 }
