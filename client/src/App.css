@@ -1,14 +1,15 @@
-body {
-  background: url(https://pixabay.com/get/eb37b10c2efd063ed1534705fb0938c9bd22ffd41cb2114592f5c970af/food-2203697_1920.jpg);
+ body {
+  background: url("./Images/CuttingBoardGarlic.jpg");
   height: 50%;
   background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
   background-attachment: fixed;
-  /* background-color: cadetblue;
-  --use only if adjusting background image to smaller size */
+  background-color: cadetblue;
+  /* --use only if adjusting background image to smaller size  */
   font-family: "Homemade Apple";
-}
+} 
+
 
 .App {
   text-align: center;

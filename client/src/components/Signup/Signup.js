@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Button, Form, FormGroup, Input, FormText, Badge } from 'reactstrap';
 import './Signup.css';
 
 class Signup extends Component {
@@ -46,38 +47,74 @@ class Signup extends Component {
 
   render() {
     return (
-      <div id="signup-form" className="col-6">
-            <div className="page-header">
-                <h3>Sign Up / Register</h3>
-            </div>
-        <form className="form-horizontal">
-          {/* <div className="form-group">
-            <div className="col-1 col-ml auto">
-              <label htmlFor="username">Username: </label>
-            </div> */}
-            <div className="form-group row">
-              <input className="form-input col-sm-6 col-form-label" type="text" id="username" name="username" placeholder="Username"
-                value={this.state.username}
-                onChange={this.handleChange}/>
-            </div>
-          {/* </div> */}
-          {/* <div className="form-group">
-            <div className="col-1 col-ml-auto">
-              <label htmlFor="password" className="form-lable">
-                Password:
-              </label>
-            </div> */}
-              <div className="form-group row">
-                <input type="password" className="form-input col-sm-6 col-form-label" name="password" placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.handleChange} />
-              </div>
-          {/* </div> */}
-          <div className="form-group row">
-              <button className="btn btn-secondary" onClick={this.handleSubmit}type="submit">Sign Up</button>
-          </div>
-        </form>
-      </div>
+
+      <Form className='form-group pl-5' id='login-form'>
+      <h2 className='form-row pb-3'>Signup</h2>
+        <FormGroup className='form-row pb-2'>
+          <Input 
+            className='bg-dark text-white' 
+            type='username' 
+            name='username' 
+            placeholder='New Awesome Username Here'
+            value={this.state.username}
+            onChange={this.handleChange} />
+        </FormGroup>
+        <FormGroup className='form-row pb-2'>
+          <Input  
+            className='bg-dark text-white' 
+            type='password' 
+            name='password' 
+            placeholder='New Secret Password Here'
+            value={this.state.password}
+            onChange={this.handleChange} />
+        </FormGroup>
+        <FormGroup>
+          <FormText color='muted'>You're SO close!!!! Click below me and you're all set!</FormText>
+        </FormGroup>
+        <FormGroup className='form-row pt-3'>
+          <Button 
+            type='submit' 
+            color='success' 
+            onClick={this.handleSubmit}>Sign Me Up Scotty!</Button> 
+        </FormGroup>
+      </Form>
+
+      //------------------------------------------------------------------
+      // Previous style without Reactstrap. Delete when double-checked.
+      //------------------------------------------------------------------
+      //------------------------------------------------------------------
+      // <div id="signup-form" className="col-6">
+      //       <div className="page-header">
+      //           <h3>Sign Up / Register</h3>
+      //       </div>
+      //   <form className="form-horizontal">
+      //     {/* <div className="form-group">
+      //       <div className="col-1 col-ml auto">
+      //         <label htmlFor="username">Username: </label>
+      //       </div> */}
+      //       <div className="form-group row">
+      //         <input className="form-input col-sm-6 col-form-label" type="text" id="username" name="username" placeholder="Username"
+      //           value={this.state.username}
+      //           onChange={this.handleChange}/>
+      //       </div>
+      //     {/* </div> */}
+      //     {/* <div className="form-group">
+      //       <div className="col-1 col-ml-auto">
+      //         <label htmlFor="password" className="form-lable">
+      //           Password:
+      //         </label>
+      //       </div> */}
+      //         <div className="form-group row">
+      //           <input type="password" className="form-input col-sm-6 col-form-label" name="password" placeholder="Password"
+      //             value={this.state.password}
+      //             onChange={this.handleChange} />
+      //         </div>
+      //     {/* </div> */}
+      //     <div className="form-group row">
+      //         <button className="btn btn-secondary" onClick={this.handleSubmit}type="submit">Sign Up</button>
+      //     </div>
+      //   </form>
+      // </div>
     );
   }
 }
