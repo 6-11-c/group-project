@@ -4,12 +4,40 @@ import logo from '../../logo.svg';
 import '../../App.css';
 import axios from 'axios';
 import './Navbar.css';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Input,
+  Button } from 'reactstrap';
 
-class Navbar extends Component {
+
+class MainNavbar extends Component {
   constructor() {
     super();
     this.logout = this.logout.bind(this);
+    //-----------------------------------------
+    // Toggle for converting to Reactstrap
+    //-----------------------------------------
+    // this.toggle = this.toggle.bind(this);
+    // this.state = {
+    //   isOpen: false
+    // };
+    //------------------------------------------
   }
+  //--------------------------------------------
+  // Toggle function for converting to Reactstrap
+  //--------------------------------------------
+  // toggle() {
+  //   this.setState({
+  //     isOpen: !this.state.isOpen
+  //   });
+  // }
+  //--------------------------------------------
 
   logout(e) {
     e.preventDefault();
@@ -33,6 +61,57 @@ class Navbar extends Component {
     console.log(`navbar rendered, props: ${this.props.loggedIn}`);
 
     return (
+
+      //---------------------------------------------------------------
+      // Converting to Reactstrap. Please check. 
+      //---------------------------------------------------------------
+      //---------------------------------------------------------------
+      // <div>
+      //   <Navbar className="navbar App-header" dark expand="md">
+      //   <img src={logo} className="App-logo" alt="logo"/>
+      //     <NavbarBrand href="/">Food App</NavbarBrand>
+      //     <NavbarToggler onClick={this.toggle} />
+      //     <Collapse isOpen={this.state.isOpen} navbar>
+      //     <div>
+      //       {loggedIn ? (
+      //       <Nav navbar className="navbar-section">
+      //         <NavItem>
+      //           <NavLink
+      //             href="#"
+      //             className=""
+      //             onClick={this.logout} >
+      //             Logout
+      //           </NavLink>
+      //         </NavItem>
+      //       </Nav>
+      //       ) : (
+      //       <Nav className="pl-5" navbar>
+      //         <NavItem>
+      //           <NavLink href="/">Home</NavLink>
+      //         </NavItem>
+      //         <NavItem>
+      //           <NavLink href="/login">Login</NavLink>
+      //         </NavItem>
+      //         <NavItem>
+      //           <NavLink href="/signup">Signup</NavLink>
+      //         </NavItem>             
+      //       </Nav>
+      //       )}
+      //     </div>
+      //     </Collapse>            
+      //         <Input
+      //           className="w-25"
+      //           type="search"
+      //           name="search"
+      //           placeholder="Search, do you dare? *yoda voice*"
+      //           value="" />
+      //         <Button
+      //           className="ml-3"
+      //           type="search"
+      //           color="secondary" >Search!</Button>
+      //   </Navbar>
+      // </div>
+
       <div id="nav-bar">
         <header className="navbar App-header" id="nav-container">
         <div className="col-4 col-mr-auto">
@@ -70,4 +149,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default MainNavbar;

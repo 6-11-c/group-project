@@ -3,7 +3,7 @@ import axios from "axios";
 import { Route, Link } from "react-router-dom";
 import Signup from "./components/Signup/Signup";
 import LoginForm from "./components/LoginForm/LoginForm";
-import Navbar from "./components/Navbar/Navbar";
+import MainNavbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 
 class App extends Component {
@@ -45,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <MainNavbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {this.state.loggedIn && <p>Join the party, {this.state.username}!</p>}
         <Route exact path="/" component={Home} />
         <Route
