@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button, Form, FormGroup, Input, FormText, Badge } from 'reactstrap';
+import { Button, Form, FormGroup, Input, FormText } from 'reactstrap';
 import './Signup.css';
 
 class Signup extends Component {
