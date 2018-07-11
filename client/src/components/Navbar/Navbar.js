@@ -3,7 +3,7 @@ import { Redirect, Route, Link } from 'react-router-dom';
 import logo from '../../logo.svg';
 import '../../App.css';
 import axios from 'axios';
-import './Navbar.css';
+
 import {
   Collapse,
   Navbar,
@@ -69,7 +69,7 @@ class MainNavbar extends Component {
       <div>
         <Navbar className="navbar App-header" dark expand="md">
         <img src={logo} className="App-logo" alt="logo"/>
-          <NavbarBrand href="/">Food App</NavbarBrand>
+          <NavbarBrand href="/"><strong>Epic Produce</strong></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
           <div>
@@ -85,15 +85,18 @@ class MainNavbar extends Component {
               </NavItem>
             </Nav>
             ) : (
-            <Nav className="pl-5" navbar>
+            <Nav className="" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink className="ml-3" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/login">Login</NavLink>
+                <NavLink className="ml-3" href="/login">Login</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/signup">Signup</NavLink>
+                <NavLink className="ml-3" href="/signup">Signup</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="ml-3" href="/products">Our Products</NavLink>
               </NavItem>             
             </Nav>
             )}

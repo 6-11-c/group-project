@@ -1,5 +1,7 @@
- body {
-  background: url("./Images/CuttingBoardGarlic.jpg");
+
+
+body {
+  background: url("./CuttingBoardGarlic.jpg");
   height: 50%;
   background-repeat: no-repeat;
 	background-position: center center;
@@ -7,7 +9,6 @@
   background-attachment: fixed;
   font-family: "Homemade Apple";
 } 
-
 
 .App {
   text-align: center;

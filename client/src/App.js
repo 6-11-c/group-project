@@ -5,6 +5,7 @@ import Signup from "./components/Signup/Signup";
 import LoginForm from "./components/LoginForm/LoginForm";
 import MainNavbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
+import Product from "./components/Products/Products";
 
 class App extends Component {
   constructor() {
@@ -57,6 +58,11 @@ class App extends Component {
           exact
           path="/signup"
           render={() => <Signup />}
+        />
+        <Route
+          exact
+          path="/products"
+          render={() => <Product />}
         />
       </div>
     );

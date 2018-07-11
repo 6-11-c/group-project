@@ -55,7 +55,7 @@ class Signup extends Component {
             className='bg-dark text-white' 
             type='username' 
             name='username' 
-            placeholder='New Awesome Username Here'
+            placeholder='Awesome Username Here'
             value={this.state.username}
             onChange={this.handleChange} />
         </FormGroup>
@@ -64,7 +64,7 @@ class Signup extends Component {
             className='bg-dark text-white' 
             type='password' 
             name='password' 
-            placeholder='New Secret Password Here'
+            placeholder='Secret Password Here'
             value={this.state.password}
             onChange={this.handleChange} />
         </FormGroup>
