@@ -1,15 +1,14 @@
-const express = require('express');
+const http = require('http');
+const app = require('./app');
+const path = require('path');
 
-// Production Only
-app.use(express.static(path.join(__dirname, 'client/build')));
+const port = process.env.PORT || 5000;
+
+const server = http.createServer(app);
 
 // Production Only
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
-// Development mode port
-const port = process.env.PORT || 5000;
-app.listen(port)
-
-module.exports = app;
+server.listen(port);
