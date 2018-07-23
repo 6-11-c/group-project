@@ -67,8 +67,8 @@ router.post("/", (req, res, next) => {
 });
 
 // Get a specific product from DB
-router.get("/:id", (req, res, next) => {
-  const id = req.params.id;
+router.get("/:productId", (req, res, next) => {
+  const id = req.params.productId;
   Product.findById(id)
     .select("name price _id")
     .exec()
@@ -96,8 +96,8 @@ router.get("/:id", (req, res, next) => {
 });
 
 // Update a specific object from the DB
-router.patch("/:id", (req, res, next) => {
-  const id = req.params.id;
+router.patch("/:productId", (req, res, next) => {
+  const id = req.params.productId;
   const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
@@ -124,8 +124,8 @@ router.patch("/:id", (req, res, next) => {
 });
 
 // Delete a specific object from the DB
-router.delete("/:id", (req, res, next) => {
-  const id = req.params.id;
+router.delete("/:productId", (req, res, next) => {
+  const id = req.params.productId;
   Product.remove({ _id: id })
     .exec()
     .then(result => {
