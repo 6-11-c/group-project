@@ -98,7 +98,7 @@ router.get("/:orderId", (req, res, next) => {
 });
 
 // Delete specific order from DB
-router.delete("/:id", (req, res, next) => {
+router.delete("/:orderId", (req, res, next) => {
   Order.remove({ _id: req.params.orderId })
     .exec()
     .then(result => {
