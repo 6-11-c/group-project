@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect, Route, Link } from 'react-router-dom';
-import logo from '../../logo.svg';
-import '../../App.css';
+import MediaQuery from 'react-responsive';
 import axios from 'axios';
+import NavbarStyles from '../../styles/NavbarStyles';
 
 import {
   Collapse,
@@ -11,34 +10,23 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  Input,
-  Button } from 'reactstrap';
+  NavLink, } from 'reactstrap';
 
 
 class MainNavbar extends Component {
   constructor() {
     super();
     this.logout = this.logout.bind(this);
-    //-----------------------------------------
-    // Toggle for converting to Reactstrap
-    //-----------------------------------------
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
     };
-    //------------------------------------------
   }
-  //--------------------------------------------
-  // Toggle function for converting to Reactstrap
-  //--------------------------------------------
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
-  //--------------------------------------------
-
   logout(e) {
     e.preventDefault();
     console.log("Logging out!"); // Delete after tests successful
@@ -61,14 +49,10 @@ class MainNavbar extends Component {
     console.log(`navbar rendered, props: ${this.props.loggedIn}`);
 
     return (
-
-      //---------------------------------------------------------------
-      // Converting to Reactstrap. Please check. 
-      //---------------------------------------------------------------
-      //---------------------------------------------------------------
       <div>
-        <Navbar className="navbar App-header" dark expand="md">
-        <img src={logo} className="App-logo" alt="logo"/>
+        <MediaQuery query={'(min-device-width: 500px)'}>
+        <Navbar className="nav-bar" style={NavbarStyles.appHeader} dark expand="md">
+        <img src={require('../../../src/logo.svg')} style={NavbarStyles.appLogo} alt="logo"/>
           <NavbarBrand href="/"><strong>Epic Produce</strong></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -101,53 +85,48 @@ class MainNavbar extends Component {
             </Nav>
             )}
           </div>
-          </Collapse>            
-              <Input
-                className="w-25"
-                type="search"
-                name="search"
-                placeholder="Search, do you dare? *yoda voice*"
-                value="" />
-              <Button
-                className="ml-3"
-                type="search"
-                color="secondary" >Search!</Button>
+          </Collapse>
         </Navbar>
+        </MediaQuery>
+      <MediaQuery query={'(max-device-width: 500px)'}>
+          <Navbar dark expand="md">
+          <img src={require('../../../src/logo.svg')} style={NavbarStyles.appLogo} alt="logo"/>
+            <NavbarBrand href="/"><strong>Epic Produce</strong></NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+            <div>
+              {loggedIn ? (
+              <Nav navbar className="navbar-section">
+                <NavItem>
+                  <NavLink
+                    href="#"
+                    className=""
+                    onClick={this.logout} >
+                    Logout
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              ) : (
+              <Nav className="" navbar>
+                <NavItem>
+                  <NavLink className="ml-3" href="/">Home</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="ml-3" href="/login">Login</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="ml-3" href="/signup">Signup</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="ml-3" href="/products">Our Products</NavLink>
+                </NavItem>             
+              </Nav>
+              )}
+            </div>
+            </Collapse>            
+          </Navbar>
+        </MediaQuery>
       </div>
-
-      // <div id="nav-bar">
-      //   <header className="navbar App-header" id="nav-container">
-      //   <div className="col-4 col-mr-auto">
-      //       <div id="top-filler"></div>
-      //       <img src={logo} className="App-logo" alt="logo"/>
-      //       <h1 className="App-title">Food App</h1>
-      //     </div>
-      //     <div className="col-4">
-      //       {loggedIn ? (
-      //         <section className="navbar-section">
-      //           <Link
-      //             to="#"
-      //             className="btn btn-link text-white"
-      //             onClick={this.logout}>
-      //             <span className="text-white">Logout</span>
-      //           </Link>
-      //         </section>
-      //       ) : (
-      //         <section className="navbar-section">
-      //           <Link to="/" className="btn btn-link text-dark">
-      //             <span className="text-light">Home</span>
-      //           </Link>
-      //           <Link to="/login" className="btn btn-link text-dark">
-      //             <span className="text-light">Login</span>
-      //           </Link>
-      //           <Link to="/signup" className="btn btn-link text-dark">
-      //             <span className="text-light">Signup</span>
-      //           </Link>
-      //         </section>
-      //       )}
-      //     </div>
-      //   </header>
-      // </div>
     );
   }
 }

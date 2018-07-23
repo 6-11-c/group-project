@@ -35,6 +35,6 @@ const items = [
   },
 ];
 
-const ImageSlider = () => <UncontrolledCarousel className="w-50 mx-auto" items={items} />;
+const ImageSlider = () => <UncontrolledCarousel items={items} />;
 
 export default ImageSlider;

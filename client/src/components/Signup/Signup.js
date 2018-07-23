@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button, Form, FormGroup, Input, FormText } from 'reactstrap';
-import './Signup.css';
+import LoginFormStyles from '../../styles/LoginFormStyles';
 
 class Signup extends Component {
   constructor() {
@@ -48,7 +48,7 @@ class Signup extends Component {
   render() {
     return (
 
-      <Form className='form-group pl-5' id='login-form'>
+      <Form className='form-group pl-5' style={LoginFormStyles.loginForm}>
       <h2 className='form-row pb-3'>Signup</h2>
         <FormGroup className='form-row pb-2'>
           <Input 
@@ -69,7 +69,7 @@ class Signup extends Component {
             onChange={this.handleChange} />
         </FormGroup>
         <FormGroup>
-          <FormText color='muted'>You're SO close!!!! Click below me and you're all set!</FormText>
+          <FormText color='light'>You're SO close!!!! Click below me and you're all set!</FormText>
         </FormGroup>
         <FormGroup className='form-row pt-3'>
           <Button 

@@ -6,8 +6,9 @@ import ImageSlider from './ImageSlider';
 
 const Home = (props) => {
   return (
-    <div>
-      <Jumbotron className="w-75 h-50 mx-auto mt-5 bg-dark text-light">
+    <div className="container">
+      <div className="mt-3 mx-auto row justify-content-center">
+      <Jumbotron className="bg-dark text-light">
         <h1 className="display-5">Welcome to <em><strong>Epic Produce!</strong></em></h1>
         <p className="lead">Here you will find a MASSIVE scale of produce.</p>
         <hr className="" />
@@ -16,11 +17,20 @@ const Home = (props) => {
           <Button color="success" href="/signup">Sign Up!</Button>
         </p>
       </Jumbotron>
-
+      </div>
+      <div className="col-sm mx-auto row justify-content-center">
       <ImageSlider />
+      </div>
     </div>
   );
 };
+export default Home;
+
+
+
+
+
+
 
 
 // const Home = (props) => {
@@ -46,4 +56,3 @@ const Home = (props) => {
 //   }
 // }
 
-export default Home;
