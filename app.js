@@ -3,9 +3,13 @@ const app = express();
 const path = require("path");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
+const dbConn = require('./db/database');
 
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
+
+mongoose.connect(dbConn);
 
 // Development logging
 app.use(morgan("dev"));
