@@ -1,25 +1,14 @@
-// module imports
-const express = require('express');
+const http = require('http');
+const app = require('./app');
 const path = require('path');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const app = express();
 
-// PRODUCTION ONLY
-app.use(express.static(path.join(__dirname, 'client/build')));
+const port = process.env.PORT || 5000;
 
-// app middleware
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
+const server = http.createServer(app);
 
-// PRODUCTION ONLY
+// Production Only
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
-// Development mode port
-const port = process.env.PORT || 5000;
-app.listen(port)
-
-module.exports = app;
+server.listen(port);

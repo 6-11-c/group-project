@@ -1,24 +1,29 @@
 {
-  "name": "deploy-app",
+  "name": "epic-produce",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
-  "author": "",
+  "keywords": [
+    "node",
+    "rest",
+    "api"
+  ],
+  "author": "David Coy and Joshua Butler",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.4",
-    "mongoose-auto-increment": "^5.0.1",
-    "path": "^0.12.7",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-responsive": "^5.0.0"
+    "morgan": "^1.9.0",
+    "multer": "^1.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }
