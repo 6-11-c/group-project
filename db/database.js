@@ -3,7 +3,7 @@ mongoose.Promise = global.Promise;
 
 const uri = `mongodb://${process.env.DBUSERNAME}:${process.env.DBPASS}@ds261440.mlab.com:61440/swd109j`
 
-mongoose.connect(uri).then(() => {
+mongoose.connect(uri, { useNewUrlParser: true }).then(() => {
   console.log('Connected to mLab');
 }, err => {
   console.log(`Error connecting to mLab: ${err}`)
