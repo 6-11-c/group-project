@@ -1,6 +1,6 @@
 import React from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
-import '../../App.css';
+
 
 const items = [
   {
@@ -35,6 +35,6 @@ const items = [
   },
 ];
 
-const ImageSlider = () => <UncontrolledCarousel className="m-5 w-75 mx-auto" items={items} />;
+const ImageSlider = () => <UncontrolledCarousel items={items} />;
 
 export default ImageSlider;

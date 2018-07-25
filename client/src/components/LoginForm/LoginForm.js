@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, Input, FormText, Badge } from 'reactstrap';
 // import { Form, FormControl, FormGroup, ControlLabel, Checkbox, Col, Button } from "react-bootstrap";
 // --!!! Delete if "react-bootstrap" not implemented, as well as code block mentioned below with "FormGroup"s etc...--!!
 // ------------------------------------------------------------------------------------------------------------------------
-import './LoginForm.css';
+import LoginFormStyles from '../../styles/LoginFormStyles';
 
 class LoginForm extends Component {
   constructor() {
@@ -57,7 +57,7 @@ class LoginForm extends Component {
     } else {
       return (
 
-      <Form className='form-group pl-5' id='login-form'>
+      <Form className='form-group pl-5' style={LoginFormStyles.loginForm}>
       <h2 className='form-row pb-3'>Login</h2>
         <FormGroup className='form-row pb-2'>
           <Input 
@@ -84,7 +84,7 @@ class LoginForm extends Component {
         </FormGroup>
         <FormGroup>
           <FormText color='light'>Not signed up yet?!? How Dare you!</FormText>
-          <Badge href='#' color='danger'>Sign Up!</Badge>
+          <Badge href='/Signup' color='danger'>Sign Up!</Badge>
         </FormGroup>
         <FormGroup className='form-row pt-3'>
           <Button 
@@ -139,4 +139,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+export default LoginForm;
