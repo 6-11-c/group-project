@@ -78,43 +78,6 @@ class Signup extends Component {
             onClick={this.handleSubmit}>Sign Me Up Scotty!</Button> 
         </FormGroup>
       </Form>
-
-      //------------------------------------------------------------------
-      // Previous style without Reactstrap. Delete when double-checked.
-      //------------------------------------------------------------------
-      //------------------------------------------------------------------
-      // <div id="signup-form" className="col-6">
-      //       <div className="page-header">
-      //           <h3>Sign Up / Register</h3>
-      //       </div>
-      //   <form className="form-horizontal">
-      //     {/* <div className="form-group">
-      //       <div className="col-1 col-ml auto">
-      //         <label htmlFor="username">Username: </label>
-      //       </div> */}
-      //       <div className="form-group row">
-      //         <input className="form-input col-sm-6 col-form-label" type="text" id="username" name="username" placeholder="Username"
-      //           value={this.state.username}
-      //           onChange={this.handleChange}/>
-      //       </div>
-      //     {/* </div> */}
-      //     {/* <div className="form-group">
-      //       <div className="col-1 col-ml-auto">
-      //         <label htmlFor="password" className="form-lable">
-      //           Password:
-      //         </label>
-      //       </div> */}
-      //         <div className="form-group row">
-      //           <input type="password" className="form-input col-sm-6 col-form-label" name="password" placeholder="Password"
-      //             value={this.state.password}
-      //             onChange={this.handleChange} />
-      //         </div>
-      //     {/* </div> */}
-      //     <div className="form-group row">
-      //         <button className="btn btn-secondary" onClick={this.handleSubmit}type="submit">Sign Up</button>
-      //     </div>
-      //   </form>
-      // </div>
     );
   }
 }

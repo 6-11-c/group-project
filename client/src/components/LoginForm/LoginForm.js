@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import { Button, Form, FormGroup, Input, FormText, Badge } from 'reactstrap';
-// -----------------------------------------------------------------------------------------------------------------------
-// import { Form, FormControl, FormGroup, ControlLabel, Checkbox, Col, Button } from "react-bootstrap";
-// --!!! Delete if "react-bootstrap" not implemented, as well as code block mentioned below with "FormGroup"s etc...--!!
-// ------------------------------------------------------------------------------------------------------------------------
 import LoginFormStyles from '../../styles/LoginFormStyles';
 
 class LoginForm extends Component {
@@ -93,47 +89,6 @@ class LoginForm extends Component {
             onClick={this.handleSubmit}>Login</Button> 
         </FormGroup>
       </Form>
-
-
-        //--------------------------------------------------------------
-        // --!! Delete from above comment if not implemented !!--
-        // --!! Left off converting the below "FormGroup" --!! 
-        // -------------------------------------------------------------
-
-        // <div id="login-form" className="col-6">         
-        //     <div className="page-header">
-        //         <h3>Login</h3>
-        //     </div>
-        //   <form className="form-horizontal">
-        //     {/* <div className="form-group"> */}
-        //       {/* <div className="col-1 col-ml-auto">
-        //         <label htmlFor="username" className="form-label">
-        //           Username:{" "}
-        //         </label>
-        //       </div> */}
-        //       <div className="form-group row">
-        //         <input type="text" className="form-input col-sm-6 col-form-label" name="username" placeholder="Username"
-        //           value={this.state.username}
-        //           onChange={this.handleChange} />
-        //       </div>
-        //     {/* </div> */}
-        //     {/* <div className="form-group"> */}
-        //       {/* <div className="col-1 col-ml-auto">
-        //         <label htmlFor="password" className="form-label">
-        //           Password:{" "}
-        //         </label>
-        //       </div> */}
-        //       <div className="form-group row">
-        //         <input type="password" className="form-input col-sm-6 col-form-label" name="password" placeholder="Password"
-        //           value={this.state.password}
-        //           onChange={this.handleChange} />
-        //       </div>
-        //     {/* </div> */}
-        //     <div className="form-group row">
-        //       <button className="btn btn-secondary" onClick={this.handleSubmit} type="submit">Login</button>
-        //     </div>
-        //   </form>
-        // </div>
       );
     }
   }
