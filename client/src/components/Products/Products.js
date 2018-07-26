@@ -1,43 +1,45 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button, FormText } from 'reactstrap';
 import SearchBar from './SearchBar';
-
-
+import axios from 'axios';
 
 class Product extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: []
+    }
+  }
+
+  componentDidMount = () => {
+    axios.get('https://staging-agile-springs-53811.herokuapp.com/products').then((results, err) => {
+      const product = results.data;
+      console.log(product);
+      this.setState({ results });
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
   render() {
+    console.log(this.state.products);
     return (
       <div>
-      <SearchBar />
-      <Container className="pt-5">
-      <h2 className="row justify-content-center text-light">Our Epic Produce!</h2>
-        <Row>
-          <Col className="pt-2">
-            <img className="img-fluid" src="Images/basil.jpg" alt="" />
-            <FormText color="light">Fresh Basil</FormText>
-            <FormText color="light">Price $9.99/lb</FormText>
-            <Button color="light">Add to Order</Button>
-          </Col>
-          <Col className="pt-2">
-            <img className="img-fluid" src="Images/apple.jpg" alt="" />
-            <FormText color="light">Apples</FormText>
-            <FormText color="light">Price $4.99/lb</FormText>
-            <Button color="light">Add to Order</Button>
-          </Col>
-          <Col className="pt-2">
-            <img className="img-fluid" src="Images/avocado2.jpg" alt="" />
-            <FormText color="light">Hass Avocados</FormText>
-            <FormText color="light">Price $1.99/each</FormText>
-            <Button color="light">Add to Order</Button>
-          </Col>
-          <Col className="pt-2">
-            <img className="img-fluid" src="Images/banana.jpg" alt="" />
-            <FormText color="light">Bananas</FormText>
-            <FormText color="light">Price $6.99/bunch</FormText>
-            <Button color="light">Add to Order</Button>
-          </Col>
-        </Row>
-      </Container>
+        <SearchBar />
+        <Container className="pt-5">
+          <h2 className="row justify-content-center text-light">Our Epic Produce!</h2>
+          {this.state.products.map(product =>
+            <Row>
+              <Col key={product._id} className="pt-2">
+                <img className="img-fluid" src={product.productImage} alt="" />
+                <FormText color="light">{product.name}</FormText>
+                <FormText color="light">{product.price}</FormText>
+                <Button color="light">Add to Order</Button>
+              </Col>
+            </Row>
+          )}
+        </Container>
       </div>
     );
   }

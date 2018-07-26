@@ -15,32 +15,10 @@ class App extends Component {
       username: null
     };
 
-    this.getUser = this.getUser.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.updateUser = this.updateUser.bind(this);
-  }
-  componentDidMount() {
-    this.getUser();
-  }
-  updateUser(userObject) {
-    this.setState(userObject);
   }
 
-  getUser() {
-    axios.get("/user/").then(res => {
-      console.log(`GET User Response: ${res.data}`);
-      if (res.data.user) {
-        this.setState({
-          loggedIn: true,
-          username: res.data.user.username
-        });
-      } else {
-        this.setState({
-          loggedIn: false,
-          username: null
-        });
-      }
-    });
+  updateUser(userObject) {
+    this.setState(userObject);
   }
 
   render() {
