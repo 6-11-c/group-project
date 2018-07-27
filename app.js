@@ -34,6 +34,16 @@ app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
 app.use("/user", userRoutes);
 
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  // Handle React routing, return all requests to React app
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+  });
+}
+
 app.use((req, res, next) => {
   const err = new Error("Not found");
   err.status = 404;
@@ -48,8 +58,5 @@ app.use((err, req, res, next) => {
     }
   });
 });
-
-// Production Only
-app.use(express.static(path.join(__dirname, "client/build")));
 
 module.exports = app;
