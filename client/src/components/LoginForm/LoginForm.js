@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import { Button, Form, FormGroup, Input, FormText, Badge } from 'reactstrap';
-import LoginFormStyles from '../../styles/LoginFormStyles';
+import { Button, Form, FormGroup, Input, FormText, Badge } from "reactstrap";
+import LoginFormStyles from "../../styles/LoginFormStyles";
 
 class LoginForm extends Component {
   constructor() {
@@ -33,13 +33,15 @@ class LoginForm extends Component {
       .then(res => {
         console.log(`Login Response: ${res}`);
         if (res.status === 200) {
-          this.props.updateUser({
-            loggedIn: true,
-            username: res.data.username
-          });
-          this.setState({
-            redirectTo: "/"
-          });
+          // this.props.updateUser({
+          //   loggedIn: true,
+          //   username: res.data.username
+          // });
+          // this.setState({
+          //   redirectTo: "/"
+          // });
+          localStorage.setItem("auth_token", res.data.token);
+          window.location.href = "/";
         }
       })
       .catch(err => {
@@ -52,43 +54,47 @@ class LoginForm extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-
-      <Form className='form-group pl-5' style={LoginFormStyles.loginForm}>
-      <h2 className='form-row pb-3'>Login</h2>
-        <FormGroup className='form-row pb-2'>
-          <Input 
-            className='bg-dark text-white' 
-            type='username' 
-            name='username' 
-            placeholder='Good Ol Username'
-            value={this.state.username}
-            onChange={this.handleChange} />
-        </FormGroup>
-        <FormGroup className='form-row pb-2'>
-          <Input  
-            className='bg-dark text-white' 
-            type='password' 
-            name='password' 
-            placeholder='Secret Password'
-            value={this.state.password}
-            onChange={this.handleChange} />
-        </FormGroup>
-        <FormGroup check>
-          <FormText className='form-row pb-1' color='light'>
-            <Input type='checkbox' />Don't Forget me next time {' '}
-          </FormText>
-        </FormGroup>
-        <FormGroup>
-          <FormText color='light'>Not signed up yet?!? How Dare you!</FormText>
-          <Badge href='/Signup' color='danger'>Sign Up!</Badge>
-        </FormGroup>
-        <FormGroup className='form-row pt-3'>
-          <Button 
-            type='submit' 
-            color='success' 
-            onClick={this.handleSubmit}>Login</Button> 
-        </FormGroup>
-      </Form>
+        <Form className="form-group pl-5" style={LoginFormStyles.loginForm}>
+          <h2 className="form-row pb-3">Login</h2>
+          <FormGroup className="form-row pb-2">
+            <Input
+              className="bg-dark text-white"
+              type="username"
+              name="username"
+              placeholder="Good Ol Username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup className="form-row pb-2">
+            <Input
+              className="bg-dark text-white"
+              type="password"
+              name="password"
+              placeholder="Secret Password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup check>
+            <FormText className="form-row pb-1" color="light">
+              <Input type="checkbox" />Don't Forget me next time{" "}
+            </FormText>
+          </FormGroup>
+          <FormGroup>
+            <FormText color="light">
+              Not signed up yet?!? How Dare you!
+            </FormText>
+            <Badge href="/Signup" color="danger">
+              Sign Up!
+            </Badge>
+          </FormGroup>
+          <FormGroup className="form-row pt-3">
+            <Button type="submit" color="success" onClick={this.handleSubmit}>
+              Login
+            </Button>
+          </FormGroup>
+        </Form>
       );
     }
   }
