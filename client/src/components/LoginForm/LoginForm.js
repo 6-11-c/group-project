@@ -33,11 +33,15 @@ class LoginForm extends Component {
       .then(res => {
         console.log(`Login Response: ${res}`);
         if (res.status === 200) {
-          this.props.updateUser({
-            loggedIn: true,
-            username: res.data.username
-          });
-          window.location.href = '/'
+          // this.props.updateUser({
+          //   loggedIn: true,
+          //   username: res.data.username
+          // });
+          // this.setState({
+          //   redirectTo: "/"
+          // });
+          localStorage.setItem("auth_token", res.data.token);
+          window.location.href = "/";
         }
       })
       .catch(err => {
