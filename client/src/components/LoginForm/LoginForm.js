@@ -10,7 +10,8 @@ class LoginForm extends Component {
     this.state = {
       username: "",
       password: "",
-      redirectTo: null
+      redirectTo: null,
+      loggedIn: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -42,6 +43,7 @@ class LoginForm extends Component {
           // });
           localStorage.setItem("auth_token", res.data.token);
           window.location.href = "/";
+          this.setState({ loggedIn: true });
         }
       })
       .catch(err => {
