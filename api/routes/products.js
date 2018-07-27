@@ -11,6 +11,9 @@ router.get("/", ProductsControler.product_get_all);
 // Get a specific product from DB
 router.get("/:productId", ProductsControler.get_one_product);
 
+// Add products to DB
+router.post("/", ProductsControler.products_create_product);
+
 // Update a specific object from the DB
 router.patch("/:productId", checkAuth, ProductsControler.update_one_product);
 
