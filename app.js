@@ -30,11 +30,7 @@ app.use((req, res, next) => {
 });
 
 // Routes which will handle requests
-<<<<<<< HEAD
-app.use("/api/", productRoutes);
-=======
 app.use("/api/products", productRoutes);
->>>>>>> rest-redux
 app.use("/orders", orderRoutes);
 app.use("/user", userRoutes);
 
