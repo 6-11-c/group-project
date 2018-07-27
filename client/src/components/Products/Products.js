@@ -13,7 +13,7 @@ class Product extends Component {
 
   componentDidMount = () => {
     axios
-      .get("/products")
+      .get("/api/products")
       .then(results => {
         const product = results.data;
         console.log('products', product);
