@@ -38,7 +38,7 @@ class LoginForm extends Component {
             username: res.data.username
           });
           this.setState({
-            redirectTo: "/products"
+            redirectTo: "/"
           });
         }
       })
