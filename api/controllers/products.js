@@ -51,7 +51,7 @@ exports.products_create_product = (req, res, next) => {
           _id: result._id,
           request: {
             type: "GET",
-            url: `http://localhost:5000/products/${result._id}`
+            url: `http://agile-springs-53811.herokuapp.com/products/${result._id}`
           }
         }
       });
