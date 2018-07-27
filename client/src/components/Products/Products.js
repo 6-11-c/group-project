@@ -16,7 +16,7 @@ class Product extends Component {
       .get("/products")
       .then(results => {
         const product = results.data;
-        // console.log('products', product);
+        console.log('products', product);
         this.setState({ products: product.products });
       })
       .catch(err => {
