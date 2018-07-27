@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 // Routes which will handle requests
-app.use("/products", productRoutes);
+app.use("/api/products", productRoutes);
 app.use("/orders", orderRoutes);
 app.use("/user", userRoutes);
 
