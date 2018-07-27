@@ -37,9 +37,7 @@ class LoginForm extends Component {
             loggedIn: true,
             username: res.data.username
           });
-          this.setState({
-            redirectTo: "/"
-          });
+          window.location.href = '/'
         }
       })
       .catch(err => {
