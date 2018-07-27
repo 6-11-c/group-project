@@ -16,7 +16,7 @@ exports.product_get_all = (req, res, next) => {
             _id: doc._id,
             request: {
               type: "GET",
-              url: `http://localhost:5000/products/${doc._id}`
+              url: `http://agile-springs-53811.herokuapp.com/products/${doc._id}`
             }
           };
         })
@@ -77,7 +77,7 @@ exports.get_one_product = (req, res, next) => {
           request: {
             type: "GET",
             description: "GET_SINGLE_PRODUCT",
-            url: `http://localhost:5000/products/${doc.id}`
+            url: `http://agile-springs-53811.herokuapp.com/products/${doc.id}`
           }
         });
       } else {
@@ -107,7 +107,7 @@ exports.update_one_product = (req, res, next) => {
         request: {
           type: "GET",
           description: "UPDATE_SINGLE_PRODUCT",
-          url: `http://localhost:5000/products/${id}`
+          url: `http://agile-springs-53811.herokuapp.com/products/${id}`
         }
       });
     })
@@ -128,7 +128,7 @@ exports.delete_one_product = (req, res, next) => {
         message: "Product deleted",
         request: {
           type: "POST",
-          url: "http://localhost:5000/products",
+          url: "/products/",
           body: {
             name: "String",
             price: "Number"
