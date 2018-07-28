@@ -13,10 +13,10 @@ class Product extends Component {
 
   componentDidMount = () => {
     axios
-      .get("https://staging-agile-springs-53811.herokuapp.com/products")
+      .get("/api/products")
       .then(results => {
         const product = results.data;
-        // console.log('products', product);
+        console.log('products', product);
         this.setState({ products: product.products });
       })
       .catch(err => {
