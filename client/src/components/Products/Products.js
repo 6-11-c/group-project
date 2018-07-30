@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import axios from "axios";
 
 class Product extends Component {
-  
+
   state = {};
 
   componentDidMount = () => {
@@ -21,7 +21,7 @@ class Product extends Component {
   };
 
   render() {
-    // console.log('products', this.state.products);
+    console.log('products: ', this.state.products);
     return (
       <div>
         <SearchBar />
