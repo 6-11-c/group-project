@@ -29,7 +29,7 @@ class Product extends Component {
     return (
       <div>
         <SearchBar />
-        <Container className="pt-5">
+        {/* <Container className="pt-5">
           <h2 className="row justify-content-center text-light">
             Our Epic Produce!
           </h2>
@@ -43,7 +43,7 @@ class Product extends Component {
               </Col>
             </Row>
           )) : null}
-        </Container>
+        </Container> */}
       </div>
     );
   }
