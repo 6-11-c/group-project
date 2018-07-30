@@ -9,7 +9,7 @@ class Product extends Component {
 
   componentDidMount = () => {
     axios
-      .get("/api/products")
+      .get("/api/products/products")
       .then(results => {
         const product = results.data;
         console.log('products', product);
@@ -29,7 +29,7 @@ class Product extends Component {
           <h2 className="row justify-content-center text-light">
             Our Epic Produce!
           </h2>
-          {(this.state) ? this.state.products.map((product, index) => (
+          {(this.state.products) ? this.state.products.map((product, index) => (
             <Row key={index}>
               <Col className="pt-2">
                 <img className="img-fluid" src={product.productImage} alt="" />
