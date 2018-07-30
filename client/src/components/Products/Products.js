@@ -33,7 +33,7 @@ class Product extends Component {
           <h2 className="row justify-content-center text-light">
             Our Epic Produce!
           </h2>
-          {this.state.products.map((product, index) => (
+          {(this.state) ? this.state.products.map((product, index) => (
             <Row key={index}>
               <Col className="pt-2">
                 <img className="img-fluid" src={product.productImage} alt="" />
@@ -42,7 +42,7 @@ class Product extends Component {
                 <Button color="light">Add to Order</Button>
               </Col>
             </Row>
-          ))}
+          )) : null}
         </Container>
       </div>
     );
