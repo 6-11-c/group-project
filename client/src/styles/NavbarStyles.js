@@ -3,14 +3,17 @@ const NavbarStyles = {
     backgroundColor: "darkolivegreen",
     height: "80px",
     padding: "20px",
-    color: "white",
     fontFamily: "Homemade Apple"
   },
   appLogo: {
-    animation: 'App-logo-spin infinite 20s linear',
-    height: '50px'
+    animation: "App-logo-spin infinite 10s linear",
+    height: "30px",
+    color: "white"
+  },
+  appCart: {
+    height: "30px",
+    float: "right"
   }
-
 };
 
 export default NavbarStyles;

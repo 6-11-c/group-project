@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button, FormText } from "reactstrap";
+import { Container, Row, Col, Button, FormText, Label, Input } from "reactstrap";
 import SearchBar from "./SearchBar";
 import axios from "axios";
+import CartStyles from '../../styles/CartStyles';
 
 class Product extends Component {
 
@@ -35,6 +36,8 @@ class Product extends Component {
                 <img className="img-fluid" src={product.productImage} alt="" />
                 <FormText color="light">{product.name}</FormText>
                 <FormText color="light">{product.price}</FormText>
+                <Label for="exampleSelect">Select</Label>
+                <Input style={CartStyles.inputStyle} type="number" name="number"></Input>
                 <Button color="light">Add to Order</Button>
               </Col>
             </Row>

@@ -52,8 +52,8 @@ class MainNavbar extends Component {
       <div>
         <MediaQuery query={'(min-device-width: 500px)'}>
         <Navbar className="nav-bar" style={NavbarStyles.appHeader} dark expand="md">
-        <img src={require('../../../src/logo.svg')} style={NavbarStyles.appLogo} alt="logo"/>
-          <NavbarBrand href="/"><strong>Epic Produce</strong></NavbarBrand>
+        <img src={require('../../../src/lemon-solid.svg')} style={NavbarStyles.appLogo} alt="logo"/>
+          <NavbarBrand href="/" className="ml-3"><strong>Epic Produce</strong></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
           <div>
@@ -69,9 +69,9 @@ class MainNavbar extends Component {
               </NavItem>
             </Nav>
             ) : (
-            <Nav className="" navbar>
+            <Nav  className="" navbar>
               <NavItem>
-                <NavLink className="ml-3" href="/">Home</NavLink>
+                <NavLink className="ml-5 pl-5" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink className="ml-3" href="/login">Login</NavLink>
@@ -81,6 +81,11 @@ class MainNavbar extends Component {
               </NavItem>
               <NavItem>
                 <NavLink className="ml-3" href="/products">Our Products</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="ml-5" href="/cart">
+                <img src={require('../../../src/shopping-cart-solid.svg')} style={NavbarStyles.appCart} alt="logo"/>
+                </NavLink>
               </NavItem>             
             </Nav>
             )}
@@ -89,9 +94,12 @@ class MainNavbar extends Component {
         </Navbar>
         </MediaQuery>
       <MediaQuery query={'(max-device-width: 500px)'}>
-          <Navbar dark expand="md">
-          <img src={require('../../../src/logo.svg')} style={NavbarStyles.appLogo} alt="logo"/>
+          <Navbar className="bg-success" dark expand="md">
+            <img src={require('../../../src/lemon-solid.svg')} style={NavbarStyles.appLogo} color="white" alt="logo"/>
             <NavbarBrand href="/"><strong>Epic Produce</strong></NavbarBrand>
+            <NavLink className="light" href="/cart">
+              <img src={require('../../../src/shopping-cart-solid.svg')} style={NavbarStyles.appCart} alt="logo"/>
+            </NavLink>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
             <div>
@@ -132,3 +140,4 @@ class MainNavbar extends Component {
 }
 
 export default MainNavbar;
+
