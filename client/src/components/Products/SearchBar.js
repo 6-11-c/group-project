@@ -16,6 +16,7 @@ class SearchBar extends Component {
             </InputGroupAddon>
           </InputGroup>
         </MediaQuery>
+        
         <MediaQuery query={'(max-device-width: 500px)'}>
           <InputGroup className="mx-auto searchBar" style={SearchBarStyles.searchComponent}>
             <Input placeholder="Search our EPIC products" />

@@ -51,12 +51,11 @@ class MainNavbar extends Component {
     return (
       <div>
         <MediaQuery query={'(min-device-width: 500px)'}>
-        <Navbar className="nav-bar" style={NavbarStyles.appHeader} dark expand="md">
-        <img src={require('../../../src/lemon-solid.svg')} style={NavbarStyles.appLogo} alt="logo"/>
-          <NavbarBrand href="/" className="ml-3"><strong>Epic Produce</strong></NavbarBrand>
+        <Navbar style={NavbarStyles.appHeader} expand="md">
+        <img href="/" src={require('../../../src/lemon-solid.svg')} style={NavbarStyles.appLogo} alt="logo"/>
+          <NavbarBrand className="text-light ml-2" href="/">Epic Produce</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-          <div>
             {loggedIn ? (
             <Nav navbar className="navbar-section">
               <NavItem>
@@ -69,40 +68,40 @@ class MainNavbar extends Component {
               </NavItem>
             </Nav>
             ) : (
-            <Nav  className="" navbar>
+
+            <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink className="ml-5 pl-5" href="/">Home</NavLink>
+                <NavLink className="text-light ml-3" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="ml-3" href="/login">Login</NavLink>
+                <NavLink className="text-light ml-3" href="/login">Login</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="ml-3" href="/signup">Signup</NavLink>
+                <NavLink className="text-light ml-3" href="/signup">Signup</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="ml-3" href="/products">Our Products</NavLink>
+                <NavLink className="text-light ml-3" href="/products">Our Products</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="ml-5" href="/cart">
+                <NavLink href="/cart">
                 <img src={require('../../../src/shopping-cart-solid.svg')} style={NavbarStyles.appCart} alt="logo"/>
                 </NavLink>
-              </NavItem>             
+              </NavItem>
             </Nav>
             )}
-          </div>
           </Collapse>
         </Navbar>
         </MediaQuery>
-      <MediaQuery query={'(max-device-width: 500px)'}>
-          <Navbar className="bg-success" dark expand="md">
+
+        <MediaQuery query={'(max-device-width: 500px)'}>
+          <Navbar style={NavbarStyles.mobileNavbar} dark>
             <img src={require('../../../src/lemon-solid.svg')} style={NavbarStyles.appLogo} color="white" alt="logo"/>
-            <NavbarBrand href="/"><strong>Epic Produce</strong></NavbarBrand>
-            <NavLink className="light" href="/cart">
+            <NavbarBrand className="text-light" href="/"><strong>Epic Produce</strong></NavbarBrand>
+            <NavLink href="/cart">
               <img src={require('../../../src/shopping-cart-solid.svg')} style={NavbarStyles.appCart} alt="logo"/>
             </NavLink>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
-            <div>
               {loggedIn ? (
               <Nav navbar className="navbar-section">
                 <NavItem>
@@ -117,20 +116,19 @@ class MainNavbar extends Component {
               ) : (
               <Nav className="" navbar>
                 <NavItem>
-                  <NavLink className="ml-3" href="/">Home</NavLink>
+                  <NavLink className="text-light" href="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="ml-3" href="/login">Login</NavLink>
+                  <NavLink className="text-light" href="/login">Login</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="ml-3" href="/signup">Signup</NavLink>
+                  <NavLink className="text-light" href="/signup">Signup</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="ml-3" href="/products">Our Products</NavLink>
+                  <NavLink className="text-light" href="/products">Our Products</NavLink>
                 </NavItem>             
               </Nav>
               )}
-            </div>
             </Collapse>            
           </Navbar>
         </MediaQuery>
