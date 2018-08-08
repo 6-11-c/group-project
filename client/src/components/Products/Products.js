@@ -1,19 +1,34 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button, FormText, Label, Input } from "reactstrap";
-import SearchBar from "./SearchBar";
+import { Row, Col, Button, FormText, Card, CardBody} from "reactstrap";
+// import SearchBar from "./SearchBar"; <--Stretch Goal-->
 import axios from "axios";
-import CartStyles from '../../styles/CartStyles';
+import ImageStyles from '../../styles/ImageStyles';
+import MediaQuery from 'react-responsive';
+import ProductStyles from "../../styles/ProductStyles";
 
 class Product extends Component {
 
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicks: 0
+    };
+  }
+  
+  incrementItem = (item) => {
+    let authToken = window.localStorage.auth_token;
+    let payload = (authToken) ? JSON.parse(window.atob(authToken.split('.')[1])) : null;
+    item.id = payload.userId;
+    axios.post("/cart", item).then(() => {
+      window.location.href = '/cart';
+    })
+  }
 
   componentDidMount = () => {
     axios
       .get("/api/products/products")
       .then(results => {
         const product = results.data;
-        console.log('products', product);
         this.setState({ products: product.products });
       })
       .catch(err => {
@@ -22,27 +37,54 @@ class Product extends Component {
   };
 
   render() {
-    console.log('products: ', this.state.products);
     return (
       <div>
-        <SearchBar />
-        <Container className="pt-5">
-          <h2 className="row justify-content-center text-light">
+
+        {/* Desktop Responsiveness */}
+        <MediaQuery query={'(min-device-width: 500px)'}>
+         {/* The SearchBar Component is a stretch goal <SearchBar /> */}
+          <h2 className="row justify-content-center text-light mt-3 mb-3">
             Our Epic Produce!
           </h2>
+        <Card style={ProductStyles.cardStyle} className="mx-auto" color="dark">
+          <CardBody>
           {(this.state.products) ? this.state.products.map((product, index) => (
             <Row key={index}>
-              <Col className="pt-2">
-                <img className="img-fluid" src={product.productImage} alt="" />
-                <FormText color="light">{product.name}</FormText>
-                <FormText color="light">{product.price}</FormText>
-                <Label for="exampleSelect">Select</Label>
-                <Input style={CartStyles.inputStyle} type="number" name="number"></Input>
-                <Button color="light">Add to Order</Button>
+              <Col className="mx-auto my-auto">
+                <img className="img-fluid rounded" style={ImageStyles.appImages} src={product.productImage} alt="" />
+                <FormText color="light"><h4>{product.name}</h4></FormText>
+                <FormText style={ProductStyles.priceStyle} color="light"><strong>${product.price}</strong></FormText>
+                <Button color="secondary" className="mt-2" onClick={() => this.incrementItem(product)}>Add to Order</Button>
               </Col>
             </Row>
           )) : null}
-        </Container>
+          </CardBody>
+        </Card>
+        </MediaQuery>
+
+
+      {/* Mobile Responsiveness */}
+      <MediaQuery query={'(max-device-width: 500px)'}>
+         {/* The SearchBar Component is a stretch goal <SearchBar /> */}
+          <h2 className="row justify-content-center text-light mt-3 mb-3">
+            Our Epic Produce!
+          </h2>
+        <Card style={ProductStyles.cardStyle} className="mx-auto" color="dark">
+          <CardBody>
+          {(this.state.products) ? this.state.products.map((product, index) => (
+            <Row key={index}>
+              <Col className="mx-auto my-auto">
+                <img className="img-fluid rounded" style={ImageStyles.appImages} src={product.productImage} alt="" />
+                <FormText color="light"><h4>{product.name}</h4></FormText>
+                <FormText style={ProductStyles.priceStyle} color="light"><strong>${product.price}</strong></FormText>
+                <Button color="secondary" className="mt-2" onClick={() => this.incrementItem(product)}>Add to Order</Button>
+              </Col>
+            </Row>
+          )) : null}
+          </CardBody>
+        </Card>
+        </MediaQuery>
+
       </div>
     );
   }

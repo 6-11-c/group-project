@@ -1,9 +1,10 @@
 const NavbarStyles = {
-  appHeader: {
+  appNav: {
     backgroundColor: "darkolivegreen",
     height: "80px",
     padding: "20px",
     fontFamily: "Homemade Apple",
+    boxShadow: "10px 10px 10px 10px black"
   },
   appLogo: {
     animation: "App-logo-spin infinite 20s linear",
@@ -17,6 +18,7 @@ const NavbarStyles = {
   mobileNavbar: {
     backgroundColor: "darkolivegreen",
     fontFamily: "Homemade Apple",
+    boxShadow: "5px 5px 5px 5px black"
   }
 };
 
