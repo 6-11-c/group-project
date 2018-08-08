@@ -50,8 +50,10 @@ class MainNavbar extends Component {
 
     return (
       <div>
+
+      {/* Desktop Responsiveness */}
         <MediaQuery query={'(min-device-width: 500px)'}>
-        <Navbar style={NavbarStyles.appHeader} expand="md">
+        <Navbar style={NavbarStyles.appNav} expand="md">
         <img href="/" src={require('../../../src/lemon-solid.svg')} style={NavbarStyles.appLogo} alt="logo"/>
           <NavbarBrand className="text-light ml-2" href="/">Epic Produce</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
@@ -93,6 +95,7 @@ class MainNavbar extends Component {
         </Navbar>
         </MediaQuery>
 
+      {/* Mobile Responsiveness */}
         <MediaQuery query={'(max-device-width: 500px)'}>
           <Navbar style={NavbarStyles.mobileNavbar} dark>
             <img src={require('../../../src/lemon-solid.svg')} style={NavbarStyles.appLogo} color="white" alt="logo"/>

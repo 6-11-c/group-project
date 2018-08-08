@@ -8,6 +8,8 @@ class SearchBar extends Component {
   render() {
     return(
       <div>
+
+      {/* Desktop Respnsiveness */}
         <MediaQuery query={'(min-device-width: 500px)'}>
           <InputGroup className="mx-auto pt-5 searchBar" style={SearchBarStyles.searchComponent}>
             <Input placeholder="Search our EPIC products" />
@@ -17,8 +19,9 @@ class SearchBar extends Component {
           </InputGroup>
         </MediaQuery>
         
+      {/* Mobile Respnsiveness   */}
         <MediaQuery query={'(max-device-width: 500px)'}>
-          <InputGroup className="mx-auto searchBar" style={SearchBarStyles.searchComponent}>
+          <InputGroup className="mx-auto mt-4 searchBar" style={SearchBarStyles.searchComponent}>
             <Input placeholder="Search our EPIC products" />
             <InputGroupAddon addonType="append">
               <Button color="secondary">Search!!</Button>
