@@ -52,7 +52,7 @@ class Product extends Component {
               <Col className="pt-2">
                 <img className="img-fluid" style={ImageStyles.appImages} src={product.productImage} alt="" />
                 <FormText color="light"><h4>{product.name}</h4></FormText>
-                <FormText color="light"><h5>${product.price}.00</h5></FormText>
+                <FormText color="light"><h5>${product.price}</h5></FormText>
                 <Button color="secondary" className="ml-2" onClick={() => this.incrementItem(product)}>Add to Order</Button>
               </Col>
             </Row>
