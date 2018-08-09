@@ -21,11 +21,11 @@ To start the application locally, clone the repository and run `npm start` from 
 
 | Route  | Verb | Description |
 | ------------- | ------------- | ------------- |
-| `/products`  | *GET* | Get a listing of all products  |
-| `/products`  | *POST* | Create new product |
-| `/products/:productId` | *GET* | Get a single product |
-| `/products/:productId` | *PATCH* | Update a single product, requires JWT |
-| `/products/:productId` | *DELETE* | Delete a single product, requires JWT |
+| `/api/products/products`  | *GET* | Get a listing of all products  |
+| `/api/products/products`  | *POST* | Create new product |
+| `/api/products/products/:productId` | *GET* | Get a single product |
+| `/api/products/products/:productId` | *PATCH* | Update a single product, requires JWT |
+| `/api/products/products/:productId` | *DELETE* | Delete a single product, requires JWT |
 
 ### Orders
 
