@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const uri = "mongodb://epicproduce:EpicProduce123@ds261440.mlab.com:61440/swd109j";
+const uri = "mongodb://josh:abc123@ds261440.mlab.com:61440/swd109j";
 
 mongoose.connect(uri, { useNewUrlParser: true }).then(() => {
   console.log('Connected to mLab');

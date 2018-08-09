@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button, FormText, Input, InputGroup, InputGroupAddon } from "reactstrap";
-import SearchBar from "./SearchBar";
+import { Row, Col, Button, FormText, Card, CardBody} from "reactstrap";
+// import SearchBar from "./SearchBar"; <--Stretch Goal-->
 import axios from "axios";
-import CartStyles from '../../styles/CartStyles';
 import ImageStyles from '../../styles/ImageStyles';
 import MediaQuery from 'react-responsive';
+import ProductStyles from "../../styles/ProductStyles";
 
 class Product extends Component {
 
@@ -42,22 +42,46 @@ class Product extends Component {
 
         {/* Desktop Responsiveness */}
         <MediaQuery query={'(min-device-width: 500px)'}>
-        <SearchBar />
-        <Container className="pt-5">
-          <h2 className="row justify-content-center text-light">
+         {/* The SearchBar Component is a stretch goal <SearchBar /> */}
+          <h2 className="row justify-content-center text-light mt-3 mb-3">
             Our Epic Produce!
           </h2>
+        <Card style={ProductStyles.cardStyle} className="mx-auto" color="dark">
+          <CardBody>
           {(this.state.products) ? this.state.products.map((product, index) => (
             <Row key={index}>
-              <Col className="pt-2">
-                <img className="img-fluid" style={ImageStyles.appImages} src={product.productImage} alt="" />
+              <Col className="mx-auto my-auto">
+                <img className="img-fluid rounded" style={ImageStyles.appImages} src={product.productImage} alt="" />
                 <FormText color="light"><h4>{product.name}</h4></FormText>
-                <FormText color="light"><h5>${product.price}</h5></FormText>
-                <Button color="secondary" className="ml-2" onClick={() => this.incrementItem(product)}>Add to Order</Button>
+                <FormText style={ProductStyles.priceStyle} color="light"><strong>${product.price}</strong></FormText>
+                <Button color="secondary" className="mt-2" onClick={() => this.incrementItem(product)}>Add to Order</Button>
               </Col>
             </Row>
           )) : null}
-        </Container>
+          </CardBody>
+        </Card>
+        </MediaQuery>
+
+      {/* Mobile Responsiveness */}
+      <MediaQuery query={'(max-device-width: 500px)'}>
+         {/* The SearchBar Component is a stretch goal <SearchBar /> */}
+          <h2 className="row justify-content-center text-light mt-3 mb-3">
+            Our Epic Produce!
+          </h2>
+        <Card style={ProductStyles.cardStyle} className="mx-auto" color="dark">
+          <CardBody>
+          {(this.state.products) ? this.state.products.map((product, index) => (
+            <Row key={index}>
+              <Col className="mx-auto my-auto">
+                <img className="img-fluid rounded" style={ImageStyles.appImages} src={product.productImage} alt="" />
+                <FormText color="light"><h4>{product.name}</h4></FormText>
+                <FormText style={ProductStyles.priceStyle} color="light"><strong>${product.price}</strong></FormText>
+                <Button color="secondary" className="mt-2" onClick={() => this.incrementItem(product)}>Add to Order</Button>
+              </Col>
+            </Row>
+          )) : null}
+          </CardBody>
+        </Card>
         </MediaQuery>
 
       </div>

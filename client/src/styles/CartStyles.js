@@ -14,6 +14,9 @@ const CartStyles = {
   },
   inputStyle: {
     maxWidth: "40px"
+  },
+  priceStyle: {
+    fontSize: "15px"
   }
 }
 
